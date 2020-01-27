@@ -1,0 +1,16 @@
+{
+    "clients": [
+        {
+            "region": "us-east-1",
+            "client_id": "aws_access_key",
+            "secret_token": "aws_secret_code"
+        }
+    ],
+    "functions": [
+        {
+            "path": "/hello-world",
+            "arn": "aws_function_arn",
+            "client_id": "aws_access_key"
+        }
+    ]
+}
