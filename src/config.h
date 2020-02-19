@@ -1,5 +1,6 @@
 #pragma once
 
+#include <filesystem>
 #include <fstream>
 #include <unordered_map>
 
@@ -35,7 +36,12 @@ public:
     {
         if (!config_name.empty())
         {
-            const std::string config_path = TSConfigDirGet() + config_name;
+            std::filesystem::path config_path(config_name);
+            if (config_path.is_relative())
+            {
+                config_path = TSConfigDirGet();
+                config_path /= config_name;
+            }
             Aws::IFStream ifs(config_path);
 
             auto doc = Aws::Utils::Json::JsonValue(ifs).View();

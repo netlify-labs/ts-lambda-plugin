@@ -6,7 +6,6 @@ LDFLAGS += -ltscppapi
 LDFLAGS += -laws-cpp-sdk-lambda
 LDFLAGS += -shared
 
-
 SRC := $(shell ls -1 src/*.cc | sort)
 OBJS := $(patsubst %.cc, %.o, $(SRC))
 LIB ?= ts-lambda-plugin.so
