@@ -2,6 +2,10 @@
 
 This is a plugin for [Apache TrafficServer](https://trafficserver.apache.org) that allows you to use TrafficServer as proxy/cache for AWS Lambda invocations.
 
+## Requirements
+
+This plugin requires you to have the [AWS SDK CPP](https://github.com/aws/aws-sdk-cpp/) installed in development and production machines.
+
 ## Configuration
 
 This plugin is enabled as a Remap plugin, so you need to add it to your `remap.config` file:
