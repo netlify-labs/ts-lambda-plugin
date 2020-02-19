@@ -17,7 +17,7 @@ There is a very simple Makefile that compiles a dynamically linked object that y
 This plugin is enabled as a Remap plugin, so you need to add it to your `remap.config` file:
 
 ```
-map http://localhost http://localhost
+map http://localhost http://localhost \
     @plugin=ts-lambda-plugin.so @pparam=lambda-config.json
 ```
 
