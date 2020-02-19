@@ -6,6 +6,12 @@ This is a plugin for [Apache TrafficServer](https://trafficserver.apache.org) th
 
 This plugin requires you to have the [AWS SDK CPP](https://github.com/aws/aws-sdk-cpp/) installed in development and production machines.
 
+This plugin also requires Traffic Server 8.0.x or above installed in development and production machines.
+
+## Building
+
+There is a very simple Makefile that compiles a dynamically linked object that you can deploy on Traffic Server. Run `make` to compile this plugin from the root directory of this repository.
+
 ## Configuration
 
 This plugin is enabled as a Remap plugin, so you need to add it to your `remap.config` file:
