@@ -58,13 +58,12 @@ int InvokeAsync::dispatch()
 
 void InvokeAsync::cancel()
 {
-    TSCont contp{m_continuation};
-    if (contp != nullptr)
+    if (m_continuation == nullptr)
     {
         return;
     }
 
-    auto mutex{TSContMutexGet(contp)};
+    auto mutex{TSContMutexGet(m_continuation)};
     TSMutexLock(mutex); // prevent event dispatch for the continuation during this cancel.
 
     if (m_action != nullptr)
@@ -72,10 +71,9 @@ void InvokeAsync::cancel()
         TSActionCancel(m_action);
     }
 
-    m_continuation = nullptr;
-
     TSMutexUnlock(mutex);
-    TSContDestroy(contp);
+    TSContDestroy(m_continuation);
+    m_continuation = nullptr;
 }
 
 std::ostringstream InvokeAsync::getResponseStream()
